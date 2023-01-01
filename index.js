@@ -1,5 +1,13 @@
-var formElem = document.querySelector("#form");
+let formElem = document.querySelector("#form");
+let inputText = document.querySelector("#inputText");
 
-formElem.addEventListener("click", function (event) {
+
+const showResult = (searchValue) => {
+  console.log(searchValue);
+}
+
+formElem.addEventListener("submit", function (event) {
   event.preventDefault();
+  // console.log("Working");
+  showResult(inputText.value);
 })
