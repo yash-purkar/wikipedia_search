@@ -99,3 +99,35 @@ h2 {
 #url:hover {
   font-weight: bold;
 }
+
+footer {
+  border-top: 1px solid var(--primary);
+  width: 100%;
+  position: absolute;
+  bottom: 2px;
+  padding: 12px 0px;
+}
+footer ul {
+  list-style-type: none;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#footer-head {
+  text-align: center;
+  font-size: 20px;
+  color: var(--primary);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.logos {
+  width: 30px;
+  margin: 3px 18px;
+}
+
+.linkdin {
+  margin-top: 0px;
+}
