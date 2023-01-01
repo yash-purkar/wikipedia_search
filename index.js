@@ -2,13 +2,18 @@ let formElem = document.querySelector("#form");
 let inputText = document.querySelector("#inputText");
 
 
-const showResult = async (searchValue) => {
-  console.log(searchValue);
+let wikipediaUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20`;
 
-  let wikipediaUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch="instagram"`
-  const response = await fetch(wikipediaUrl);
-  const data = await response.json();
-  console.log(data);
+const cratedUrl = (searchVal) => {
+  return `${wikipediaUrl}&srsearch=${searchVal}`;
+}
+
+const showResult = (searchValue) => {
+  // console.log(searchValue);
+
+  fetch(cratedUrl(searchValue))
+    .then((response) => response.json())
+    .then((data) => console.log(data))
 }
 
 formElem.addEventListener("submit", function (event) {
