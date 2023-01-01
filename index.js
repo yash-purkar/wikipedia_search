@@ -28,9 +28,11 @@ const showResult = (searchValue) => {
 const displayResult = (resultArr) => {
   // console.log(resultArr);
 
-
   outputBox.innerHTML = " ";
-  outputBox.insertAdjacentHTML("beforeend", `<h2>Search Results for ${inputText.value}</h2>`);
+
+  resultArr.length > 0 ?
+    outputBox.insertAdjacentHTML("beforeend", `<h2>Search Results for ${inputText.value}</h2>`) :
+    outputBox.insertAdjacentHTML("beforeend", `<h2>No Data Found🤪 for ${inputText.value}</h2>`)
 
   resultArr.forEach((item) => {
     let itemTitle = item.title;
@@ -38,10 +40,10 @@ const displayResult = (resultArr) => {
     let itemUrl = encodeURI(`https://en.wikipedia.org/wiki/${itemTitle}`);
 
     outputBox.insertAdjacentHTML("beforeend",
-      `<div
-      <p>${itemTitle}</p>
-      <a href=${itemUrl} target="_blank">Read more</a>
-      <p>${itemDescription}</p>
+      `<div class="output-div">
+      <h3 id="title">${itemTitle}</h3>
+      <p id="description">${itemDescription}</p>
+      <a href=${itemUrl} id="url" target="_blank" >Read more</a>
       </div>`
     );
 
