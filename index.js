@@ -16,8 +16,11 @@ const showResult = (searchValue) => {
 
   fetch(cratedUrl(searchValue))
     .then((response) => response.json())
-    .then((data) => displayResult(data.query.search))
-    .catch((err) => console.log("Error Occured"));
+    .then((data) => {
+      let resultArr = data.query.search;
+      displayResult(resultArr)
+    })
+  // .catch((err) => console.log("Error Occured"));
 
 
 }
@@ -26,16 +29,34 @@ const displayResult = (resultArr) => {
   // console.log(resultArr);
 
 
+  outputBox.innerHTML = " ";
+  outputBox.insertAdjacentHTML("beforeend", `<h2>Search Results for ${inputText.value}</h2>`);
+
   resultArr.forEach((item) => {
     let itemTitle = item.title;
     let itemDescription = item.snippet;
     let itemUrl = encodeURI(`https://en.wikipedia.org/wiki/${itemTitle}`);
 
-    console.log(itemTitle);
-    console.log(itemDescription);
-    console.log(itemUrl)
+    outputBox.insertAdjacentHTML("beforeend",
+      `<div
+      <p>${itemTitle}</p>
+      <a href=${itemUrl} target="_blank">Read more</a>
+      <p>${itemDescription}</p>
+      </div>`
+    );
+
+    // console.log(itemTitle);
+    // console.log(itemDescription);
+    // console.log(itemUrl);
+
+
+
+
   })
 }
+
+
+
 
 formElem.addEventListener("submit", function (event) {
   event.preventDefault();
