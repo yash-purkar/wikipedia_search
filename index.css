@@ -104,13 +104,9 @@ h2 {
 /* For mobiles */
 
 @media only screen and (max-width: 600px) {
-  body {
-    text-align: center;
-    width: 600px;
-  }
   .main-div {
+    overflow: hidden;
     width: 260px;
-    margin: auto;
     margin-top: 50px;
     display: grid;
     grid: 1fr;
@@ -118,8 +114,9 @@ h2 {
   nav {
     background-color: var(--primary);
     padding: 15px 0px;
-    /* width: 470px; */
-    display: block;
+  }
+  #form {
+    flex-wrap: wrap;
   }
 }
 
