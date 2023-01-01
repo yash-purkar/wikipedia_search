@@ -13,6 +13,7 @@ nav {
   display: flex;
   justify-content: center;
 }
+
 h1 {
   color: #fff;
   letter-spacing: 1px;
@@ -100,6 +101,16 @@ h2 {
   font-weight: bold;
 }
 
+/* For mobiles */
+
+@media only screen and (max-width: 600px) {
+  body {
+    text-align: center;
+    width: 400px;
+  }
+}
+
+/* 
 footer {
   border-top: 1px solid var(--primary);
   width: 100%;
@@ -130,4 +141,4 @@ footer ul {
 
 .linkdin {
   margin-top: 0px;
-}
+} */
