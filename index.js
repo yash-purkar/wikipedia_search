@@ -20,7 +20,7 @@ const showResult = (searchValue) => {
       let resultArr = data.query.search;
       displayResult(resultArr)
     })
-  // .catch((err) => console.log("Error Occured"));
+    .catch((err) => console.log("Error Occured"));
 
 
 }
@@ -31,8 +31,8 @@ const displayResult = (resultArr) => {
   outputBox.innerHTML = " ";
 
   resultArr.length > 0 ?
-    outputBox.insertAdjacentHTML("beforeend", `<h2>Search Results for ${inputText.value}</h2>`) :
-    outputBox.insertAdjacentHTML("beforeend", `<h2>No Data Found🤪 for ${inputText.value}</h2>`)
+    outputBox.insertAdjacentHTML("beforeend", `<h2>Search Results for <br/> ${inputText.value}</h2>`) :
+    outputBox.insertAdjacentHTML("beforeend", `<h2>No Data Found🤪 for <br/> ${inputText.value}</h2>`)
 
   resultArr.forEach((item) => {
     let itemTitle = item.title;
@@ -46,19 +46,12 @@ const displayResult = (resultArr) => {
       <a href=${itemUrl} id="url" target="_blank" >Read more</a>
       </div>`
     );
-
     // console.log(itemTitle);
     // console.log(itemDescription);
     // console.log(itemUrl);
 
-
-
-
   })
 }
-
-
-
 
 formElem.addEventListener("submit", function (event) {
   event.preventDefault();
